@@ -315,7 +315,7 @@ async function remoteFingerprint(host) {
   // namespaces — different HOME, different files — so they must not merge.
   const account = home || 'unknown-home';
   return {
-    machineKey: (usable ? 'mid:' + mid : 'host:' + hostname) + ':' + account,
+    machineKey: (usable ? 'mid:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa + mid : 'host:' + hostname) + ':' + account,
     machineName: hostname || 'unknown',
     home,
   };
@@ -665,7 +665,7 @@ class SshRemotes {
   #adoptMachine(hostId, fingerprint) {
     if (!fingerprint || !fingerprint.machineKey) return;
     const next = fingerprint.machineKey;
-    // 'mid:<machine-id>' or 'host:<hostname>' — the part that identifies the
+    // 'mid:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa or 'host:<hostname>' — the part that identifies the
     // physical box independently of the account and of the key format version.
     const prefix = next.split(':').slice(0, 2).join(':');
     this.store.update((state) => {
@@ -843,7 +843,7 @@ class SshRemotes {
     let fingerprint = null;
     if (result.code === 0 && ((machineId && machineId !== 'unknown') || (hostname && hostname !== 'unknown'))) {
       fingerprint = {
-        machineKey: machineId && machineId !== 'unknown' ? 'mid:' + machineId : 'host:' + hostname + ':' + home,
+        machineKey: machineId && machineId !== 'unknown' ? 'mid:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa + machineId : 'host:' + hostname + ':' + home,
         machineName: hostname || 'unknown',
         home,
       };

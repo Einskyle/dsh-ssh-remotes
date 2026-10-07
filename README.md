@@ -250,7 +250,7 @@ cua 明确拒绝后台文本投递（`Background delivery is not available ... f
 
 | 验证项 | 结果 |
 |---|---|
-| 两个入口归并 | 同一 `machineKey=mid:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa…9515`，`machines=1`，`endpoints=2`，label=`devhost` |
+| 两个入口归并 | 同一 `machineKey=mid:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`，`machines=1`，`endpoints=2`，label=`devhost` |
 | 重复工作区合并 | `/home/devuser` 的 3 条记录 → 2 条（去重 1 条），落盘一致 |
 | 断线自动选路 | 断开 LAN 后在工作区上建会话，自动走 Tailscale（`hostId=host-273b574a`），会话仍归同一机器 |
 | 重新连通 | 仍为 1 台机器 / 2 个端点 / 2 个工作区，会话不重复 |
