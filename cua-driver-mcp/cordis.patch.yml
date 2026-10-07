@@ -1,0 +1,28 @@
+# Configuration-only bundle: it inserts the shipped `@deepseek-ai/dsh-mcp-client`
+# row and points it at the local Cua Driver MCP stdio server. The client resolves
+# from the dsh installation, so this bundle declares no dependencies.
+#
+# The driver advertises this exact invocation in `cua-driver manifest`
+# (mcp_invocation.args = ["mcp"]).
+#
+# Tool names reach the model as `mcp__cua__<tool>`, e.g.
+#   mcp__cua__get_desktop_state   full-screen screenshot
+#   mcp__cua__get_window_state    UIA element tree for one window
+#   mcp__cua__bring_to_front      raise a window to the OS foreground
+#   mcp__cua__click / type_text / hotkey / scroll / drag
+#   mcp__cua__browser_navigate / browser_click / get_browser_state
+#
+# `toolCallTimeoutMs` is raised because screenshots and UIA walks can be slow.
+# `failOnStartupError: false` keeps the Harness starting normally when the
+# driver is absent, updating, or stopped.
+- insert:
+    - id: mcp-cua-driver
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: cua
+        transport: stdio
+        command: '<CUA_INSTALL_DIR>\cua-driver.exe'
+        args:
+          - mcp
+        toolCallTimeoutMs: 120000
+        failOnStartupError: false

@@ -1,0 +1,46 @@
+{
+  "name": "dsh-ssh-remotes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Configure SSH remotes and drive a remote headless DSH over SSH; create remote workspaces and sessions from the sidebar.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "meta": {
+    "title": "SSH 远程服务器",
+    "description": "通过 SSH 连接远程 DSH（ACP 无头模式），在左侧边栏创建远程工作区和远程会话，并以 🌐 标识。"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "license": "MIT",
+  "author": "Einskyle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Einskyle/dsh-ssh-remotes.git"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "ssh",
+    "acp",
+    "remote"
+  ]
+}

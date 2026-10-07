@@ -1,0 +1,6 @@
+﻿# Inserts the Host half of the SSH-remote plugin. The Client half is picked up
+# from the same package's dsh.client manifest section and renders the sidebar
+# panel icon, the remote panel, and the settings page.
+- insert:
+    - id: ssh-remotes
+      name: 'dsh-ssh-remotes'

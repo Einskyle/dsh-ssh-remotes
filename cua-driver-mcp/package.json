@@ -1,0 +1,16 @@
+{
+  "name": "@local/cua-driver-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP bridge that gives the Harness agent Cua Driver computer-use tools.",
+  "meta": {
+    "title": "Cua 计算机使用（MCP）",
+    "description": "通过 MCP 接入本机 Cua Driver：截屏、窗口/UIA 读取、鼠标键盘输入、浏览器控制。"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
